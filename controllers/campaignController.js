@@ -1,8 +1,8 @@
 const Campaign = require('../models/Campaign');
 const Customer = require('../models/Customer');
-const CommunicationLog = require('../models/CommunicationLog');
+// const CommunicationLog = require('../models/CommunicationLog');
 const { logger } = require('../utils/logger');
-const { sendMessage } = require('../services/vendorService');
+// const { sendMessage } = require('../services/vendorService');
 const { evaluateCustomerRules } = require('../utils/ruleEngine');
 
 const createCampaign = async (req, res) => {
