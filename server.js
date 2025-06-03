@@ -7,9 +7,9 @@ const morgan = require('morgan');
 require('dotenv').config();
 
 const customerRoutes = require('./routes/customerRoutes');
-const orderRoutes = require('./routes/orderRoutes');
+// const orderRoutes = require('./routes/orderRoutes');
 const campaignRoutes = require('./routes/campaignRoutes');
-const vendorRoutes = require('./routes/vendorRoutes');
+// const vendorRoutes = require('./routes/vendorRoutes');
 const { errorHandler } = require('./middleware/errorHandler');
 const { logger } = require('./utils/logger');
 
@@ -37,7 +37,7 @@ app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
 
 // MongoDB Connection
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/campaign_management', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/crm', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
@@ -52,9 +52,9 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/campaign_
 });
 
 app.use('/api/customers', customerRoutes);
-app.use('/api/orders', orderRoutes);
+// app.use('/api/orders', orderRoutes);
 app.use('/api/campaigns', campaignRoutes);
-app.use('/api/vendor', vendorRoutes);
+// app.use('/api/vendor', vendorRoutes);
 
 // Health check
 app.get('/api/health', (req, res) => {
